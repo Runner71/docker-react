@@ -1,0 +1,9 @@
+sudo: required
+services: 
+  - docker 
+
+before_install: 
+  - docker build -t marionascitini/docker-react -f Dockerfile.dev .
+
+scriot:
+  - docker run -e CI=true marionascitini/docker-react npm run test
